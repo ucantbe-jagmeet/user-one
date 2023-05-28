@@ -16,7 +16,7 @@ const Navlinks: FC = () => {
           return (
             <li
               key={id}
-              className="text-[--primary-black] mx-2 text-xl hover:bg-[--primary-dark-blue2] hover:text-white p-2 rounded-md cursor-pointer "
+              className="text-[--primary-black] mx-2 text-lg hover:bg-[--primary-light-blue] hover:text-[--primary-dark-blue2] p-1 px-2 rounded-md cursor-pointer transition-all duration-200 "
             >
               {text}
             </li>
