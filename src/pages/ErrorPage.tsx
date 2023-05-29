@@ -10,7 +10,7 @@ const ErrorPage: React.FC = () => {
       <p className="font-semibold mb-10">
         We can't seem to find the page you're looking for
       </p>
-      <Link to="/">
+      <Link to="/landing">
         <button className="w-[15rem] border   px-2 py-1  rounded-md transition-all duration-200 ease-in mt-3 text-[--primary-dark-blue2] border-[--primary-dark-blue1] bg-white">
           Back Home
         </button>

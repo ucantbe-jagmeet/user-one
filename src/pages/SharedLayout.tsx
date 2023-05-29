@@ -1,10 +1,15 @@
 import { FC } from "react";
+import Navbar from "../component/Navbar";
 import HomeModals from "../component/HomeModals";
 import { Outlet } from "react-router-dom";
-const Home: FC = () => {
+const SharedLayout: FC = () => {
   return (
     <div className="h-full mb-24">
-      <section>
+      <Navbar />
+      <hr />
+
+      <Outlet />
+      {/* <section>
         <div className="h-full  flex items-center  flex-col ">
           <div className=" text-center mt-28 md:mt-24 lg:mt-14">
             <h1 className="text-4xl font-semibold tracking-wide">
@@ -26,9 +31,9 @@ const Home: FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
 
-export default Home;
+export default SharedLayout;

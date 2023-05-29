@@ -35,7 +35,7 @@ const Register: FC = () => {
             value={""}
             handleChange={handleChange}
           />
-          <Link to="/home">
+          <Link to="/">
             <button className="w-[100%] border  border-[--primary-dark-blue1] px-2 py-1  rounded-md  text-[--primary-dark-blue1]  text-white bg-[--primary-dark-blue1] transition-all duration-200 ease-in mt-3 hover:text-[--primary-dark-blue1] hover:border-[--primary-dark-blue1] hover:bg-white">
               Submit
             </button>

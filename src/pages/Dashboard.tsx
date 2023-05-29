@@ -6,7 +6,7 @@ import UserContainer from "../component/UserContainer";
 const Dashboard: FC = () => {
   return (
     <>
-      <main className="h-[100vh]  flex bg-slate-200 flex-col items-center">
+      <main className="h-[100vh]  flex bg-slate-200 flex-col items-center overflow-x-hidden">
         <div className="w-[100vw] flex-col items-center flex md:flex-row md:justify-around md:items-start p-10">
           <Search />
           <CreateUserBtn />

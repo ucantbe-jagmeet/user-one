@@ -3,6 +3,7 @@ export type navLinksDataProps = {
   text: string;
   href: string;
 };
+
 export type homeModalsDataProps = {
   id: number;
   btn1: string;

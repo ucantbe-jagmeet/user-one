@@ -3,6 +3,8 @@ import Logo from "./Logo";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 import Navlinks from "./Navlinks";
 
+import { Outlet } from "react-router-dom";
+
 const Navbar: FC = () => {
   return (
     <div className="h-20 bg-white  md:justify-evenly lg:justify-around justify-between px-7 items-center flex">
