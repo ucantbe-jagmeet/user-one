@@ -8,3 +8,10 @@ export type homeModalsDataProps = {
   text: string;
   btn2: string;
 };
+
+export type FormRowProps = {
+  type: string;
+  name: string;
+  value: string;
+  handleChange: () => void;
+};
