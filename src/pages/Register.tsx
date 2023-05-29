@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Logo from "../component/Logo";
 import FormRow from "../component/FormRow";
+import { Link } from "react-router-dom";
 
 const Register: FC = () => {
   const handleChange = () => {
@@ -34,7 +35,11 @@ const Register: FC = () => {
             value={""}
             handleChange={handleChange}
           />
-
+          <Link to="/home">
+            <button className="w-[100%] border  border-[--primary-dark-blue1] px-2 py-1  rounded-md  text-[--primary-dark-blue1]  text-white bg-[--primary-dark-blue1] transition-all duration-200 ease-in mt-3 hover:text-[--primary-dark-blue1] hover:border-[--primary-dark-blue1] hover:bg-white">
+              Submit
+            </button>
+          </Link>
           <p className="text-sm tracking-wide capitalize text-center text-green-500 py-4 ">
             Not A member yet?
             <button className=" text-[--primary-dark-blue1] ml-1  ">
