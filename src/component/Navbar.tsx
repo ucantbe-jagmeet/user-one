@@ -16,7 +16,7 @@ const Navbar: FC = () => {
         <div className="hidden lg:block">
           <Navlinks />
         </div>
-        <div className="sm:w-20 md:w-28 border bg-[--primary-dark-blue2] rounded-md py-1 border-none lg:ml-7">
+        <div className="sm:w-20 md:w-28 border bg-[--primary-dark-blue2] rounded-md py-1 border-none lg:ml-7 cursor-pointer">
           <div className="flex justify-evenly items-center mx-2">
             <FaUserCircle className="text-white bg-[--primary-dark-blue2] rounded-full md:text-lg lg:text-md mr-1 " />
             <div className="text-white md:text-lg lg:text-md">User</div>

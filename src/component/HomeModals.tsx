@@ -33,13 +33,13 @@ const HomeModals: FC = () => {
               key={id}
               className="h-48 w-96 md:w-[22rem]  rounded-md bg-gradient-to-r from-[--primary-dark-blue1] to-[--primary-dark-blue4] pl-6 flex flex-col items-start justify-around"
             >
-              <button className="border  border-slate-300 px-2 py-1 rounded-md bg-transparent text-white  hover:scale-105 tracking-wider">
+              <button className="border text-sm border-slate-300 px-2 py-1 rounded-md bg-transparent text-white  hover:scale-105 tracking-wider">
                 {btn1}
               </button>
               <h1 className=" md:w-56 text-white text-lg md:text-md lg:text-md">
                 {text}
               </h1>
-              <button className="border  border-slate-300 px-2 py-1  rounded-md bg-white text-[--primary-dark-blue1] hover:scale-105">
+              <button className="border text-sm border-slate-300 px-2 py-1  rounded-md bg-white text-[--primary-dark-blue1] hover:scale-105">
                 {btn2}
               </button>
             </div>

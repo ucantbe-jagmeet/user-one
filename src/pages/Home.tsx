@@ -6,13 +6,14 @@ const Home: FC = () => {
   return (
     <div className="h-full mb-24">
       <Navbar />
+      <hr />
       <div className="h-full  flex items-center  flex-col ">
         <div className=" text-center mt-28 md:mt-24 lg:mt-14">
           <h1 className="text-4xl font-semibold tracking-wide">
             Hi, User!<span className="text-4xl">✋</span>
           </h1>
           <h1 className="text-2xl mt-5">
-            Let's help you to land on dream carrier
+            Let's help you to land on dream career
           </h1>
         </div>
         <div className=" mt-32 md:mt-28 lg:mt-20 ">
