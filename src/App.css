@@ -1,10 +1,12 @@
 :root{
     --primary-light-blue: #EAFCFF;
+    --primary-light-blue2: #036CFF;
     --primary-dark-blue1: #1874D0;
     --primary-dark-blue2: #008BDC;
     --primary-dark-blue3: #00A3E9;
     --primary-dark-blue4: #79d1f7;
     --primary-dark-blue5: #cfedf8;
+    --primary-green: #4E8E87;
     --primary-white: #FFFFFF;
     --primary-black: #333333;
 }
