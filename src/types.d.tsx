@@ -1,6 +1,7 @@
 export type navLinksDataProps = {
   id: number;
   text: string;
+  href: string;
 };
 export type homeModalsDataProps = {
   id: number;

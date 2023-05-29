@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Register from "./pages/Register";
 import ErrorPage from "./pages/ErrorPage";
+import CreateUser from "./component/CreateUser";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/createuser" element={<CreateUser />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
