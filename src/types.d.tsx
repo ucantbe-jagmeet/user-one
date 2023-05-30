@@ -17,3 +17,10 @@ export type FormRowProps = {
   value: string;
   handleChange: () => void;
 };
+
+export type FormRowSelectProps = {
+  name: string;
+  value: string;
+  handleChange: () => void;
+  list: string[];
+};
