@@ -9,6 +9,9 @@ export type homeModalsDataProps = {
   btn1: string;
   text: string;
   btn2: string;
+  color1: string;
+  color2: string;
+  href: string;
 };
 
 export type FormRowProps = {
