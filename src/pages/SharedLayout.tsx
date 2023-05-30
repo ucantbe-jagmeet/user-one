@@ -4,7 +4,7 @@ import HomeModals from "../component/HomeModals";
 import { Outlet } from "react-router-dom";
 const SharedLayout: FC = () => {
   return (
-    <div className="h-full mb-24">
+    <div className="h-full ">
       <Navbar />
       <hr />
 
