@@ -1,5 +1,6 @@
 import React from "react";
 import { BiMale, BiFemale } from "react-icons/bi";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 
@@ -13,6 +14,9 @@ const User: React.FC = () => {
         <div className="ml-2 flex flex-col">
           <h1 className="font-semibold text-lg">Jagmeet</h1>
           <p className=" text-sm">Jagmeet@gmail.com</p>
+        </div>
+        <div className="text-2xl ml-auto ">
+          <BsThreeDotsVertical />
         </div>
       </div>
       <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 p-4">

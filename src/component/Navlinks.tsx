@@ -6,7 +6,6 @@ const data: navLinksDataProps[] = [
   { id: 1, text: "Home", href: "/" },
   { id: 2, text: "Create User", href: "createuser" },
   { id: 3, text: "Display User", href: "dashboard" },
-  { id: 4, text: "Contact", href: "about" },
 ];
 
 const Navlinks: FC = () => {
