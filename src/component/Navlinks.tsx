@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const data: navLinksDataProps[] = [
   { id: 1, text: "Home", href: "/" },
   { id: 2, text: "Create User", href: "createuser" },
-  { id: 3, text: "Display User", href: "dashboard" },
+  { id: 3, text: "Display Users", href: "dashboard" },
 ];
 
 const Navlinks: FC = () => {

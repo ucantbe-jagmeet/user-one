@@ -14,3 +14,14 @@
     --primary-green1: #2ccc0b;
     --primary-green2: #a9d8a093;
 }
+
+.hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow: -moz-scrollbars-none; /* Firefox */
+    -webkit-overflow-scrolling: touch; /* iOS Safari */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }

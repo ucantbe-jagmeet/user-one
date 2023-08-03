@@ -20,9 +20,10 @@ const Landing: FC = () => {
               accusantium aut veniam atque. Dolore, sed quo! Expedita
               perferendis
             </p>
-            <Link to="/register">
+            <Link to="/">
               <button className="border text-sm border-[--primary-dark-blue1] px-2 py-1 b  rounded-md bg-white text-[--primary-dark-blue1]  mt-10 hover:text-white hover:bg-[--primary-dark-blue1] transition-all duration-200 ease-in ">
-                Login / Register
+                {/* Login / Register */}
+                Proceed to Home
               </button>
             </Link>
           </div>
