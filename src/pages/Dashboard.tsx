@@ -7,7 +7,7 @@ const Dashboard: FC = () => {
   return (
     <>
       <main className="h-fit flex flex-col bg-slate-100 items-center hide-scrollbar ">
-        <div className="w-[90%] md:w-[80%] flex flex-col justify-center md:flex-row md:justify-around md:items-start pt-10 pb-3">
+        <div className="w-[90%] md:w-[80%] flex flex-col justify-center md:flex-row md:justify-around md:items-start pt-12 pb-3">
           <Search />
           <CreateUserBtn />
         </div>
