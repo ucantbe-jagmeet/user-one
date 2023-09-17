@@ -17,13 +17,15 @@ export type homeModalsDataProps = {
 export type FormRowProps = {
   type: string;
   name: string;
-  value: string;
-  handleChange: () => void;
+  value: string | number;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  labelText?: string;
 };
 
 export type FormRowSelectProps = {
+  labelText?: string;
   name: string;
   value: string;
-  handleChange: () => void;
+  handleOptionChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   list: string[];
 };

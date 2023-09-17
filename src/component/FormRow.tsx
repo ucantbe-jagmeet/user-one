@@ -11,6 +11,7 @@ const FormRow: FC<FormRowProps> = ({ type, name, value, handleChange }) => {
         {name}
       </label>
       <input
+        name={name}
         type={type}
         value={value}
         onChange={handleChange}

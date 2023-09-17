@@ -4,7 +4,7 @@ import { FormRowSelectProps } from "../types.d";
 const FormRowSelect: React.FC<FormRowSelectProps> = ({
   name,
   value,
-  handleChange,
+  handleOptionChange,
   list,
 }) => {
   return (
@@ -19,7 +19,7 @@ const FormRowSelect: React.FC<FormRowSelectProps> = ({
         name={name}
         value={value}
         id={name}
-        onChange={handleChange}
+        onChange={handleOptionChange}
         className="bg-white border-2 border-gray-300 p-1 rounded-md pl-3 outline-none "
       >
         {list.map((itemValue, index) => {

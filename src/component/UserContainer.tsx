@@ -1,17 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import User from "./User";
+import axios, { AxiosError } from "axios";
+
+export interface IUser {
+  _id: string;
+  name: string;
+  email: string;
+  gender: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
 
 const UserContainer: React.FC = () => {
+  const [usersData, setUsersData] = useState<IUser[]>();
+
+  const fetchUsersData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3333/api/v1/users`);
+
+      const UsersData = response.data;
+      setUsersData(UsersData);
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        console.log(message);
+      }
+      // unhandled non-AxiosError goes here
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    fetchUsersData();
+  }, []);
   return (
     <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
+      {usersData && <User usersData={usersData} />}
     </main>
   );
 };
