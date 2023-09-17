@@ -6,7 +6,7 @@ import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 
 const User: React.FC = () => {
   return (
-    <header className="bg-white w-[95%] p-4 rounded-md shadow-lg">
+    <header className="bg-white col-span-1 p-4 rounded-md shadow-lg">
       <div className=" flex ">
         <div className="h-14 w-14 bg-[--primary-light-blue2] rounded-lg text-white flex justify-center items-center text-3xl pb-1">
           J

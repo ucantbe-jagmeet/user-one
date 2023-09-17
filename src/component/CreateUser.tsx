@@ -38,17 +38,17 @@ const CreateUser: React.FC = () => {
           handleChange={handleChange}
           list={["Male", "Female", "Other"]}
         />
-        <div className=" grid grid-cols-1 sm:grid-cols-2 gap-x-5 md:gap-x-11 md:col-span-2 sm:col-span-1 mt-3 ">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 gap-x-5 md:gap-x-11 md:col-span-2 sm:col-span-1 mt-5 ">
           <Link
             to="/"
-            className="w-[100%] border  border-[--primary-green]  px-2 py-1  rounded-md    text-white bg-[--primary-green] transition-all duration-200 ease-in mt-3 hover:text-[--primary-dark-blue1] hover:border-[--primary-dark-blue1] hover:bg-white text-center"
+            className="w-[100%] border  border-[--primary-green]  px-2 py-1  rounded-md    text-white bg-[--primary-green] transition-all duration-200 ease-in hover:text-[--primary-dark-blue1] hover:border-[--primary-dark-blue1] hover:bg-white text-center"
           >
             Clear
           </Link>
 
           <Link
             to="/"
-            className="w-[100%] border  border-[--primary-dark-blue1] px-2 py-1  rounded-md   text-white bg-[--primary-dark-blue1] transition-all duration-200 ease-in mt-3 hover:text-[--primary-dark-blue1] hover:border-[--primary-dark-blue1] hover:bg-white text-center"
+            className="w-[100%] border  border-[--primary-dark-blue1] px-2 py-1  rounded-md   text-white bg-[--primary-dark-blue1] transition-all duration-200 ease-in hover:text-[--primary-dark-blue1] hover:border-[--primary-dark-blue1] hover:bg-white text-center mt-5 sm:mt-0"
           >
             Submit
           </Link>
