@@ -5,6 +5,9 @@ import { SlCalender } from "react-icons/sl";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { IUser } from "./UserContainer";
 import { Dropdown, Space } from "antd";
+import axios from "axios";
+import { API_HOST } from "./api-handler/host";
+import toast from "react-hot-toast";
 
 interface IUserProps {
   usersData: IUser[];
@@ -18,10 +21,20 @@ const items = [
   {
     key: "4",
     danger: true,
-    label: <button className="">Delete User</button>,
+    label: <button className="text-red-500">Delete User</button>,
   },
 ];
+
 const User: React.FC<IUserProps> = ({ usersData }) => {
+  const handleDelete = async (userId: string) => {
+    try {
+      await axios.delete(`${API_HOST}/api/v1/users/${userId}`);
+      toast.success("User deleted successfully...");
+      window.location.reload();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
   return (
     <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
       {usersData &&
@@ -46,9 +59,8 @@ const User: React.FC<IUserProps> = ({ usersData }) => {
                           {items.map((item) => (
                             <li
                               key={item.key}
-                              className={`py-2 cursor-pointer ${
-                                item.danger ? "text-red-500" : ""
-                              }`}
+                              className={`py-2 cursor-pointer`}
+                              onClick={() => handleDelete(user._id)}
                             >
                               {item.label}
                             </li>
