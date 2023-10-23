@@ -3,14 +3,13 @@ import Search from "../component/Search";
 import CreateUserBtn from "../component/CreateUserBtn";
 import UserContainer, { IUser } from "../component/UserContainer";
 import axios, { AxiosError } from "axios";
-import { API_HOST } from "../component/api-handler/host";
 
 const Dashboard: FC = () => {
   const [usersData, setUsersData] = useState<IUser[]>();
 
   const fetchUsersData = async () => {
     try {
-      const response = await axios.get(`${API_HOST}/api/v1/users`);
+      const response = await axios.get(`${process.env.API_HOST}/api/v1/users`);
 
       const UsersData = response.data;
       setUsersData(UsersData);

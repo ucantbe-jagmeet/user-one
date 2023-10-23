@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import FormRow from "./FormRow";
 import FormRowSelect from "./FormRowSelect";
 import axios, { AxiosError } from "axios";
-import { API_HOST } from "./api-handler/host";
 import toast from "react-hot-toast";
 
 let initialState = {
@@ -32,7 +31,10 @@ const CreateUser: React.FC = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${API_HOST}/api/v1/users`, postUser);
+      const response = await axios.post(
+        `${process.env.API_HOST}/api/v1/users`,
+        postUser
+      );
       toast.success("User Created successfully...");
       setPostUser(initialState);
     } catch (error) {

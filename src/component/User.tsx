@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { BiMale, BiFemale } from "react-icons/bi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { IUser } from "./UserContainer";
-import { Dropdown, Space } from "antd";
-import axios from "axios";
-import { API_HOST } from "./api-handler/host";
-import toast from "react-hot-toast";
+import { Dropdown, Modal, Space } from "antd";
 
 interface IUserProps {
   usersData: IUser[];
@@ -20,7 +17,7 @@ const items = [
     label: <button className="text-blue-500">Update</button>,
   },
   {
-    key: "4",
+    key: "2",
     danger: true,
     label: <button className="text-red-500">Delete User</button>,
   },
@@ -52,7 +49,13 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
                             <li
                               key={item.key}
                               className={`py-2 cursor-pointer`}
-                              onClick={() => handleDelete(user._id)}
+                              onClick={() => {
+                                if (item.key === "1") {
+                                  // showModal(user);
+                                } else if (item.key === "2") {
+                                  handleDelete(user._id);
+                                }
+                              }}
                             >
                               {item.label}
                             </li>
