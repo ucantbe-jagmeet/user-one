@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import FormRow from "./FormRow";
 import FormRowSelect from "./FormRowSelect";
 import axios, { AxiosError } from "axios";
+import { API_HOST } from "./api-handler/host";
+import toast from "react-hot-toast";
 
 let initialState = {
   name: "",
@@ -30,13 +32,9 @@ const CreateUser: React.FC = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      console.log(postUser);
-
-      const response = await axios.post(
-        `http://localhost:3333/api/v1/users`,
-        postUser
-      );
-      console.log("POST Request Successful:", response.data);
+      const response = await axios.post(`${API_HOST}/api/v1/users`, postUser);
+      toast.success("User Created successfully...");
+      setPostUser(initialState);
     } catch (error) {
       if (error instanceof AxiosError) {
         const message =
@@ -46,6 +44,7 @@ const CreateUser: React.FC = () => {
           error.message ||
           error.toString();
         console.log(message);
+        toast.error(message);
       }
       // unhandled non-AxiosError goes here
       throw error;

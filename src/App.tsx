@@ -7,10 +7,12 @@ import Register from "./pages/Register";
 import ErrorPage from "./pages/ErrorPage";
 import CreateUser from "./component/CreateUser";
 import SharedLayout from "./pages/SharedLayout";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
+      <Toaster />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />

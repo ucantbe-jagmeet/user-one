@@ -17,11 +17,13 @@ const User: React.FC<IUserProps> = ({ usersData }) => {
           return (
             <header className="bg-white col-span-1 p-4 rounded-md shadow-lg">
               <div className=" flex ">
-                <div className="h-14 w-14 bg-[--primary-light-blue2] rounded-lg text-white flex justify-center items-center text-3xl pb-1">
+                <div className="h-14 w-14 bg-[--primary-light-blue2] rounded-lg text-white flex justify-center items-center text-3xl pb-1 capitalize">
                   {user.name.slice(0, 1)}
                 </div>
                 <div className="ml-3 flex flex-col space-y-0.5">
-                  <h1 className="font-semibold text-lg">{user.name}</h1>
+                  <h1 className="font-semibold text-lg capitalize">
+                    {user.name}
+                  </h1>
                   <p className=" text-xs">{user.email}</p>
                 </div>
                 <div className="text-2xl ml-auto ">
