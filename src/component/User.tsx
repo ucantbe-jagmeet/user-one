@@ -11,7 +11,7 @@ interface IUserProps {
 
 const User: React.FC<IUserProps> = ({ usersData }) => {
   return (
-    <main>
+    <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
       {usersData &&
         usersData.map((user) => {
           return (

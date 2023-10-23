@@ -75,7 +75,7 @@ const CreateUser: React.FC = () => {
 
         <FormRowSelect
           name="status"
-          value={postUser.email}
+          value={postUser.status}
           handleOptionChange={handleOptionChange}
           list={["Active", "Non-Active"]}
         />

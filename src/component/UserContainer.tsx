@@ -41,7 +41,7 @@ const UserContainer: React.FC = () => {
     fetchUsersData();
   }, []);
   return (
-    <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
+    <main className="w-full">
       {usersData && <User usersData={usersData} />}
     </main>
   );
