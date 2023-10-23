@@ -4,11 +4,23 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { IUser } from "./UserContainer";
+import { Dropdown, Space } from "antd";
 
 interface IUserProps {
   usersData: IUser[];
 }
 
+const items = [
+  {
+    key: "1",
+    label: <button className="text-blue-500">Update</button>,
+  },
+  {
+    key: "4",
+    danger: true,
+    label: <button className="">Delete User</button>,
+  },
+];
 const User: React.FC<IUserProps> = ({ usersData }) => {
   return (
     <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
@@ -26,11 +38,30 @@ const User: React.FC<IUserProps> = ({ usersData }) => {
                   </h1>
                   <p className=" text-xs">{user.email}</p>
                 </div>
-                <div className="text-2xl ml-auto ">
-                  <BsThreeDotsVertical />
+                <div className="text-2xl ml-auto cursor-pointer">
+                  <Dropdown
+                    overlay={
+                      <div className="px-3 py-1 bg-white border rounded shadow-md ">
+                        <ul>
+                          {items.map((item) => (
+                            <li
+                              key={item.key}
+                              className={`py-2 cursor-pointer ${
+                                item.danger ? "text-red-500" : ""
+                              }`}
+                            >
+                              {item.label}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    }
+                  >
+                    <BsThreeDotsVertical />
+                  </Dropdown>
                 </div>
               </div>
-              <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 p-4">
+              <div className=" grid grid-cols-1 lg:grid-cols-2 px-3 pt-3 gap-y-3">
                 <div className="flex justify-start items-center">
                   <span className="text-[--primary-dark-blue1] text-lg">
                     <FiThumbsUp />
