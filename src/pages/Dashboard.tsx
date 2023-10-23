@@ -31,7 +31,7 @@ const Dashboard: FC = () => {
 
   useEffect(() => {
     fetchUsersData();
-  }, [usersData]);
+  }, []);
   return (
     <>
       <main className="min-h-screen overflow-y-auto flex flex-col bg-slate-100 items-center hide-scrollbar ">

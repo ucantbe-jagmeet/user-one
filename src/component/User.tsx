@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 
 interface IUserProps {
   usersData: IUser[];
+  handleDelete: (userId: string) => void;
 }
 
 const items = [
@@ -25,16 +26,7 @@ const items = [
   },
 ];
 
-const User: React.FC<IUserProps> = ({ usersData }) => {
-  const handleDelete = async (userId: string) => {
-    try {
-      await axios.delete(`${API_HOST}/api/v1/users/${userId}`);
-      toast.success("User deleted successfully...");
-      window.location.reload();
-    } catch (error) {
-      console.error("Error deleting user:", error);
-    }
-  };
+const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
   return (
     <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
       {usersData &&

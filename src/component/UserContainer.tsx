@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import User from "./User";
 import axios, { AxiosError } from "axios";
+import toast from "react-hot-toast";
+import { API_HOST } from "./api-handler/host";
 
 export interface IUser {
   _id: string;
@@ -36,13 +38,22 @@ const UserContainer: React.FC = () => {
       throw error;
     }
   };
+  const handleDelete = async (userId: string) => {
+    try {
+      await axios.delete(`${API_HOST}/api/v1/users/${userId}`);
+      toast.success("User deleted successfully...");
+      window.location.reload();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
 
   useEffect(() => {
     fetchUsersData();
   }, []);
   return (
     <main className="w-full">
-      {usersData && <User usersData={usersData} />}
+      {usersData && <User usersData={usersData} handleDelete={handleDelete} />}
     </main>
   );
 };
