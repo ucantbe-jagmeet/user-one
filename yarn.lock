@@ -2744,7 +2744,14 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-ansi-styles@^4.0.0, ansi-styles@^4.1.0:
+ansi-styles@^4.0.0:
+  version "4.3.0"
+  resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz"
+  integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
+  dependencies:
+    color-convert "^2.0.1"
+
+ansi-styles@^4.1.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz"
   integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
@@ -3352,16 +3359,7 @@ case-sensitive-paths-webpack-plugin@^2.4.0:
   resolved "https://registry.npmjs.org/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.4.0.tgz"
   integrity sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==
 
-chalk@^2.4.1:
-  version "2.4.2"
-  resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
-  integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
-  dependencies:
-    ansi-styles "^3.2.1"
-    escape-string-regexp "^1.0.5"
-    supports-color "^5.3.0"
-
-chalk@^2.4.2:
+chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -3378,7 +3376,31 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.0, chalk@^4.1.2:
+chalk@^4.0.0:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.0.2:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.1.0:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -9396,7 +9418,14 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-supports-color@^7.0.0, supports-color@^7.1.0:
+supports-color@^7.0.0:
+  version "7.2.0"
+  resolved "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz"
+  integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
+  dependencies:
+    has-flag "^4.0.0"
+
+supports-color@^7.1.0:
   version "7.2.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz"
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
@@ -10421,17 +10450,7 @@ yallist@^4.0.0:
   resolved "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@^1.10.0:
-  version "1.10.2"
-  resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
-  integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
-
-yaml@^1.10.2:
-  version "1.10.2"
-  resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
-  integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
-
-yaml@^1.7.2:
+yaml@^1.10.0, yaml@^1.10.2, yaml@^1.7.2:
   version "1.10.2"
   resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
