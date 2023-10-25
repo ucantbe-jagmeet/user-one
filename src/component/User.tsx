@@ -83,7 +83,7 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
                 </div>
                 <div className="flex justify-start items-center">
                   <span className="rounded-full bg-[--primary-dark-blue1] text-white text-lg">
-                    {user.status === "active" ? (
+                    {user.gender === "male" ? (
                       <BiMale />
                     ) : (
                       <BiFemale className="bg-pink-500 rounded-full" />
