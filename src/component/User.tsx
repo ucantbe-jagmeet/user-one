@@ -68,7 +68,7 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
                             className={`py-2 cursor-pointer text-red-500`}
                             onClick={() => handleDelete(user._id)}
                           >
-                            Delete User
+                            Delete user
                           </li>
                         </ul>
                       </div>
