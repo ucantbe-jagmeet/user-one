@@ -20,7 +20,7 @@ const FormRowSelect: React.FC<FormRowSelectProps> = ({
         value={value}
         id={name}
         onChange={handleOptionChange}
-        className="bg-white border-2 border-gray-300 p-1 rounded-md pl-3 outline-none "
+        className="bg-white border-2 border-gray-300 p-1 rounded-md pl-3 outline-none capitalize"
       >
         {list.map((itemValue, index) => {
           return (

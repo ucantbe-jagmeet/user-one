@@ -10,8 +10,8 @@ const URL = process.env.REACT_APP_API_URL!;
 let initialState = {
   name: "",
   email: "",
-  gender: "Male",
-  status: "Non-Active",
+  gender: "male",
+  status: "non-active",
 };
 
 const CreateUser: React.FC = () => {
@@ -79,13 +79,13 @@ const CreateUser: React.FC = () => {
           name="status"
           value={postUser.status}
           handleOptionChange={handleOptionChange}
-          list={["Active", "Non-Active"]}
+          list={["active", "non-active"]}
         />
         <FormRowSelect
           name="gender"
           value={postUser.gender}
           handleOptionChange={handleOptionChange}
-          list={["Male", "Female", "Other"]}
+          list={["male", "female", "other"]}
         />
         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-x-5 md:gap-x-11 md:col-span-2 sm:col-span-1 mt-5 ">
           <button

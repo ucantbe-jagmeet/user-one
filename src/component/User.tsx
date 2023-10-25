@@ -73,13 +73,21 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
               <div className=" grid grid-cols-1 lg:grid-cols-2 px-3 pt-3 gap-y-3">
                 <div className="flex justify-start items-center">
                   <span className="text-[--primary-dark-blue1] text-lg">
-                    <FiThumbsUp />
+                    {user.status === "active" ? (
+                      <FiThumbsUp />
+                    ) : (
+                      <FiThumbsDown className="text-red-500 mt-1" />
+                    )}
                   </span>
                   <span className="ml-2 capitalize">{user.status}</span>
                 </div>
                 <div className="flex justify-start items-center">
                   <span className="rounded-full bg-[--primary-dark-blue1] text-white text-lg">
-                    <BiMale />
+                    {user.status === "active" ? (
+                      <BiMale />
+                    ) : (
+                      <BiFemale className="bg-pink-500 rounded-full" />
+                    )}
                   </span>
                   <span className="ml-2 capitalize">{user.gender}</span>
                 </div>
