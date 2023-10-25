@@ -46,7 +46,7 @@ const UserContainer: React.FC = () => {
   };
   const handleDelete = async (userId: string) => {
     try {
-      await axios.delete(`${URL}/api/v1/users/${userId}`);
+      await axios.delete(`${URL}api/v1/users/${userId}`);
       toast.success("User deleted successfully...");
       window.location.reload();
     } catch (error) {
