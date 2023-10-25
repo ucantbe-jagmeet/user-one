@@ -4,15 +4,19 @@ import CreateUserBtn from "../component/CreateUserBtn";
 import UserContainer, { IUser } from "../component/UserContainer";
 import axios, { AxiosError } from "axios";
 
+const URL = process.env.REACT_APP_API_URL!;
+
 const Dashboard: FC = () => {
   const [usersData, setUsersData] = useState<IUser[]>();
 
   const fetchUsersData = async () => {
+    console.log("URL", URL);
     try {
-      const response = await axios.get(`${process.env.API_HOST}/api/v1/users`);
-
-      const UsersData = response.data;
-      setUsersData(UsersData);
+      if (URL) {
+        const response = await axios.get(`${URL}api/v1/users`);
+        const UsersData = response.data;
+        setUsersData(UsersData);
+      }
     } catch (error) {
       if (error instanceof AxiosError) {
         const message =

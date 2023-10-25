@@ -5,6 +5,8 @@ import FormRowSelect from "./FormRowSelect";
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
 
+const URL = process.env.REACT_APP_API_URL!;
+
 let initialState = {
   name: "",
   email: "",
@@ -31,12 +33,11 @@ const CreateUser: React.FC = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${process.env.API_HOST}/api/v1/users`,
-        postUser
-      );
-      toast.success("User Created successfully...");
-      setPostUser(initialState);
+      if (URL) {
+        const response = await axios.post(`${URL}api/v1/users`, postUser);
+        toast.success("User Created successfully...");
+        setPostUser(initialState);
+      }
     } catch (error) {
       if (error instanceof AxiosError) {
         const message =

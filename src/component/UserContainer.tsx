@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import User from "./User";
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
-import { API_HOST } from "./api-handler/host";
+import { useAppDispatch, useAppSelector } from "../redux/store";
+import { setSearchQuery } from "../redux/features/search/SearchSlice";
+
+const URL = process.env.REACT_APP_API_URL!;
 
 export interface IUser {
   _id: string;
@@ -16,14 +19,24 @@ export interface IUser {
 }
 
 const UserContainer: React.FC = () => {
-  const [usersData, setUsersData] = useState<IUser[]>();
+  const { searchQuery } = useAppSelector(
+    (state: { SearchSlice: any }) => state.SearchSlice
+  );
 
+  const [usersData, setUsersData] = useState<IUser[]>();
+  const dispatch = useAppDispatch();
+
+  const handleInputChange = (query: string) => {
+    dispatch(setSearchQuery(query));
+  };
   const fetchUsersData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3333/api/v1/users`);
+      if (URL) {
+        const response = await axios.get(`${URL}api/v1/users`);
 
-      const UsersData = response.data;
-      setUsersData(UsersData);
+        const UsersData = response.data;
+        setUsersData(UsersData);
+      }
     } catch (error) {
       if (error instanceof AxiosError) {
         const message =
@@ -40,7 +53,7 @@ const UserContainer: React.FC = () => {
   };
   const handleDelete = async (userId: string) => {
     try {
-      await axios.delete(`${API_HOST}/api/v1/users/${userId}`);
+      await axios.delete(`${URL}/api/v1/users/${userId}`);
       toast.success("User deleted successfully...");
       window.location.reload();
     } catch (error) {
