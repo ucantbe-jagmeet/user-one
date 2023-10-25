@@ -38,7 +38,9 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
                   <h1 className="font-semibold text-lg capitalize">
                     {user.name}
                   </h1>
-                  <p className=" text-xs">{user.email}</p>
+                  <p className="text-xs tracking-wide text-gray-500">
+                    {user.email}
+                  </p>
                 </div>
                 <div className="text-2xl ml-auto cursor-pointer">
                   <Dropdown

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import User from "./User";
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
-import { useAppDispatch, useAppSelector } from "../redux/store";
-import { setSearchQuery } from "../redux/features/search/SearchSlice";
+import { useAppSelector } from "../redux/store";
 
 const URL = process.env.REACT_APP_API_URL!;
 
@@ -19,22 +18,18 @@ export interface IUser {
 }
 
 const UserContainer: React.FC = () => {
+  const [usersData, setUsersData] = useState<IUser[]>();
   const { searchQuery } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
   );
-
-  const [usersData, setUsersData] = useState<IUser[]>();
-  const dispatch = useAppDispatch();
-
-  const handleInputChange = (query: string) => {
-    dispatch(setSearchQuery(query));
-  };
   const fetchUsersData = async () => {
     try {
       if (URL) {
-        const response = await axios.get(`${URL}api/v1/users`);
+        const response = await axios.get(
+          `${URL}api/v1/users?keyword=${searchQuery}`
+        );
 
-        const UsersData = response.data;
+        const UsersData = response.data.results;
         setUsersData(UsersData);
       }
     } catch (error) {
@@ -63,7 +58,7 @@ const UserContainer: React.FC = () => {
 
   useEffect(() => {
     fetchUsersData();
-  }, []);
+  }, [searchQuery]);
   return (
     <main className="w-full">
       {usersData && <User usersData={usersData} handleDelete={handleDelete} />}
