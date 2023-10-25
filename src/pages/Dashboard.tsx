@@ -5,6 +5,7 @@ import UserContainer, { IUser } from "../component/UserContainer";
 import axios, { AxiosError } from "axios";
 import { setSearchQuery } from "../redux/features/search/SearchSlice";
 import { useAppSelector, useAppDispatch } from "../redux/store";
+import UpdateUserModal from "../component/modals/UpdateUserModal";
 
 const URL = process.env.REACT_APP_API_URL!;
 
@@ -14,14 +15,18 @@ const Dashboard: FC = () => {
   const { searchQuery } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
   );
-
+  const { isUpdateUserModalOpen } = useAppSelector(
+    (state: { Modal: any }) => state.Modal
+  );
+  const { userId } = useAppSelector(
+    (state: { tasksIdSlice: any }) => state.tasksIdSlice
+  );
   const dispatch = useAppDispatch();
 
   const handleInputChange = (query: string) => {
     dispatch(setSearchQuery(query));
   };
   const fetchUsersData = async () => {
-    console.log("URL", URL);
     try {
       if (URL) {
         const response = await axios.get(
@@ -51,6 +56,7 @@ const Dashboard: FC = () => {
   return (
     <>
       <main className="min-h-screen overflow-y-auto flex flex-col bg-slate-100 items-center hide-scrollbar ">
+        {isUpdateUserModalOpen && <UpdateUserModal userId={userId} />}
         <div className="w-[90%] md:w-[80%] flex flex-col justify-center md:flex-row md:justify-around md:items-start pt-12 pb-3">
           <Search
             inputValue={searchQuery}

@@ -5,6 +5,9 @@ import { SlCalender } from "react-icons/sl";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { IUser } from "./UserContainer";
 import { Dropdown, Modal, Space } from "antd";
+import { useAppDispatch } from "../redux/store";
+import { openUpdateUserMemberModal } from "../redux/features/modal/ModalSlice";
+import { setUserIdValue } from "../redux/features/taskId/taskIdSlice";
 
 interface IUserProps {
   usersData: IUser[];
@@ -24,6 +27,7 @@ const items = [
 ];
 
 const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
+  const dispatch = useAppDispatch();
   return (
     <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
       {usersData &&
@@ -53,6 +57,8 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
                               className={`py-2 cursor-pointer`}
                               onClick={() => {
                                 if (item.key === "1") {
+                                  dispatch(setUserIdValue(user._id));
+                                  dispatch(openUpdateUserMemberModal());
                                   // showModal(user);
                                 } else if (item.key === "2") {
                                   handleDelete(user._id);

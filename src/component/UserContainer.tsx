@@ -13,8 +13,6 @@ export interface IUser {
   gender: string;
   status: string;
   createdAt: string;
-  updatedAt: string;
-  __v: number;
 }
 
 const UserContainer: React.FC = () => {

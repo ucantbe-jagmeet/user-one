@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 
 const Navbar: FC = () => {
   return (
-    <div className="h-20 bg-white  md:justify-evenly lg:justify-around justify-between px-7 items-center flex">
+    <div className="h-20 bg-white  md:justify-evenly lg:justify-around justify-between px-7 items-center flex ">
       <div className="lg:hidden cursor-pointer">
         <FaBars className="text-[--primary-dark-blue1] text-xl md:text-3xl hover:rotate-[90deg] transition-all duration-300" />
       </div>
