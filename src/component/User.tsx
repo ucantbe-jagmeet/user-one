@@ -28,6 +28,7 @@ const items = [
 
 const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
   const dispatch = useAppDispatch();
+  const [openFilter, setOpenFilter] = useState<boolean>(false);
   return (
     <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
       {usersData &&
@@ -48,26 +49,27 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
                 </div>
                 <div className="text-2xl ml-auto cursor-pointer">
                   <Dropdown
+                    // open={openFilter}
+                    // onOpenChange={() => setOpenFilter(!openFilter)}
+                    // trigger={["click"]}
                     overlay={
                       <div className="px-3 py-1 bg-white border rounded shadow-md ">
                         <ul>
-                          {items.map((item) => (
-                            <li
-                              key={item.key}
-                              className={`py-2 cursor-pointer`}
-                              onClick={() => {
-                                if (item.key === "1") {
-                                  dispatch(setUserIdValue(user._id));
-                                  dispatch(openUpdateUserMemberModal());
-                                  // showModal(user);
-                                } else if (item.key === "2") {
-                                  handleDelete(user._id);
-                                }
-                              }}
-                            >
-                              {item.label}
-                            </li>
-                          ))}
+                          <li
+                            className={`py-2 cursor-pointer text-blue-500`}
+                            onClick={() => {
+                              dispatch(setUserIdValue(user._id));
+                              dispatch(openUpdateUserMemberModal());
+                            }}
+                          >
+                            Update
+                          </li>
+                          <li
+                            className={`py-2 cursor-pointer text-red-500`}
+                            onClick={() => handleDelete(user._id)}
+                          >
+                            Delete User
+                          </li>
                         </ul>
                       </div>
                     }
