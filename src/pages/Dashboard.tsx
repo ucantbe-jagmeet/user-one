@@ -6,11 +6,13 @@ import axios, { AxiosError } from "axios";
 import { setSearchQuery } from "../redux/features/search/SearchSlice";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import UpdateUserModal from "../component/modals/UpdateUserModal";
+import Loader from "../component/Loader";
 
 const URL = process.env.REACT_APP_API_URL!;
 
 const Dashboard: FC = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const { searchQuery } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
@@ -27,6 +29,7 @@ const Dashboard: FC = () => {
     dispatch(setSearchQuery(query));
   };
   const fetchUsersData = async () => {
+    setLoading((prev) => !prev);
     try {
       if (URL) {
         const response = await axios.get(
@@ -47,6 +50,8 @@ const Dashboard: FC = () => {
       }
       // unhandled non-AxiosError goes here
       throw error;
+    } finally {
+      setLoading((prev) => !prev);
     }
   };
 
@@ -64,11 +69,18 @@ const Dashboard: FC = () => {
           />
           <CreateUserBtn />
         </div>
-        <h1 className="font-semibold my-5">
-          {totalUsers} user{totalUsers > 1 && "s"} found
-        </h1>
-
-        <UserContainer />
+        {loading ? (
+          <div className="mt-20">
+            <Loader />
+          </div>
+        ) : (
+          <>
+            <h1 className="font-semibold my-5">
+              {totalUsers} user{totalUsers > 1 && "s"} found
+            </h1>
+            <UserContainer />
+          </>
+        )}
       </main>
     </>
   );

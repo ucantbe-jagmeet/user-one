@@ -99,7 +99,7 @@ const CreateUser: React.FC = () => {
             className="w-[100%] border  border-[--primary-dark-blue1] px-2 py-1  rounded-md   text-white bg-[--primary-dark-blue1] transition-all duration-200 ease-in hover:text-[--primary-dark-blue1] hover:border-[--primary-dark-blue1] hover:bg-white text-center mt-5 sm:mt-0"
             type="submit"
           >
-            Submit
+            Create
           </button>
         </div>
       </form>
