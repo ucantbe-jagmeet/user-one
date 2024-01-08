@@ -4,6 +4,7 @@ import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
 import { useAppSelector } from "../redux/store";
 import { Pagination } from "antd";
+import Loader from "./Loader";
 const URL = process.env.REACT_APP_API_URL!;
 
 export interface IUser {
@@ -17,6 +18,7 @@ export interface IUser {
 
 const UserContainer: React.FC = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [usersData, setUsersData] = useState<IUser[]>();
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,6 +28,7 @@ const UserContainer: React.FC = () => {
   );
   const fetchUsersData = async () => {
     try {
+      setLoading((prev) => !prev);
       if (URL) {
         const response = await axios.get(
           `${URL}api/v1/users?keyword=${searchQuery}&page=${currentPage}&limit=${pageSize}`
@@ -46,6 +49,8 @@ const UserContainer: React.FC = () => {
       }
       // unhandled non-AxiosError goes here
       throw error;
+    } finally {
+      setLoading((prev) => !prev);
     }
   };
   const fetchTotalUsers = async () => {
@@ -87,7 +92,12 @@ const UserContainer: React.FC = () => {
   useEffect(() => {
     fetchTotalUsers();
   }, []);
-  return (
+
+  return loading ? (
+    <div className="mt-20">
+      <Loader />
+    </div>
+  ) : (
     <main className="w-full pb-20">
       {usersData && (
         <>
