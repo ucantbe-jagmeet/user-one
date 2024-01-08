@@ -88,19 +88,21 @@ const UserContainer: React.FC = () => {
     fetchTotalUsers();
   }, []);
   return (
-    <main className="w-full">
+    <main className="w-full pb-20">
       {usersData && (
         <>
           <User usersData={usersData} handleDelete={handleDelete} />
-          <Pagination
-            current={currentPage}
-            pageSize={pageSize}
-            onChange={(page, pageSize) => {
-              setCurrentPage(page);
-              setPageSize(pageSize);
-            }}
-            total={totalUsers}
-          />
+          <div className="flex justify-center mt-10">
+            <Pagination
+              current={currentPage}
+              pageSize={pageSize}
+              onChange={(page, pageSize) => {
+                setCurrentPage(page);
+                setPageSize(pageSize);
+              }}
+              total={totalUsers}
+            />
+          </div>
         </>
       )}
     </main>
