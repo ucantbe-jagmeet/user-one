@@ -8,6 +8,7 @@ import { Dropdown, Modal, Space } from "antd";
 import { useAppDispatch } from "../redux/store";
 import { openUpdateUserMemberModal } from "../redux/features/modal/ModalSlice";
 import { setUserIdValue } from "../redux/features/taskId/taskIdSlice";
+import { formatDateFunction } from "../utils/FormatDate";
 
 interface IUserProps {
   usersData: IUser[];
@@ -103,7 +104,9 @@ const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
                   <span className="text-[--primary-dark-blue1] text-lg">
                     <SlCalender />
                   </span>
-                  <span className="ml-2">{user.createdAt.split("T")[0]}</span>
+                  <span className="ml-2">
+                    {formatDateFunction(user.createdAt)}
+                  </span>
                 </div>
               </div>
             </header>
