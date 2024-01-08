@@ -8,6 +8,7 @@ import HorizontalBar from "../HorizontalBar";
 import { IUser } from "../UserContainer";
 import toast from "react-hot-toast";
 import { GrClose } from "react-icons/gr";
+import Loader from "../Loader";
 const URL = process.env.REACT_APP_API_URL!;
 
 interface IUpdateUserModal {
@@ -25,6 +26,7 @@ const InititalUser = {
 const UpdateUserModal: React.FC<IUpdateUserModal> = ({ userId }) => {
   const dispatch = useDispatch();
   const [details, setDetails] = useState<IUser>(InititalUser);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleChange = (
     e:
@@ -63,6 +65,7 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ userId }) => {
 
   const fetchUsersData = async () => {
     console.log("URL", URL);
+    setLoading((prev) => !prev);
     try {
       if (URL) {
         const response = await axios.get(`${URL}api/v1/users/${userId}`);
@@ -81,6 +84,8 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ userId }) => {
       }
       // unhandled non-AxiosError goes here
       throw error;
+    } finally {
+      setLoading((prev) => !prev);
     }
   };
 
@@ -89,7 +94,7 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ userId }) => {
   }, []);
 
   return (
-    <main className="h-screen w-full flex items-center justify-center z-[1000] fixed bg-black bg-opacity-60 mb-20">
+    <main className="h-screen w-full flex items-center justify-center z-[10000] fixed bg-black bg-opacity-60 mb-20">
       <div className="h-[70%] lg:w-[50%] w-[80%] bg-white  rounded-md  py-5 z-30 flex relative items-center justify-center mb-32">
         <div
           className="absolute top-5 left-5 text-xl cursor-pointer text-red-600"
@@ -97,7 +102,9 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ userId }) => {
         >
           <GrClose />
         </div>
-        {details && (
+        {loading ? (
+          <Loader />
+        ) : (
           <form className="lg:w-[40%] w-[70%]" onSubmit={handleSubmit}>
             <h2 className="md:text-3xl text-xl text-center font-semibold">
               Edit{" "}
