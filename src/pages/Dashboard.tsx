@@ -13,6 +13,9 @@ const URL = process.env.REACT_APP_API_URL!;
 const Dashboard: FC = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
+  const onShowSizeChange = (current: number, pageSize: number) => {
+    console.log(current, pageSize);
+  };
 
   const { searchQuery } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
@@ -32,9 +35,7 @@ const Dashboard: FC = () => {
     setLoading((prev) => !prev);
     try {
       if (URL) {
-        const response = await axios.get(
-          `${URL}api/v1/users?keyword=${searchQuery}`
-        );
+        const response = await axios.get(`${URL}api/v1/users`);
         const result = response.data.totalResult;
         setTotalUsers(result);
       }
@@ -75,9 +76,9 @@ const Dashboard: FC = () => {
           </div>
         ) : (
           <>
-            <h1 className="font-semibold my-5">
-              {totalUsers} user{totalUsers > 1 && "s"} found
-            </h1>
+            {/* <h1 className="font-semibold my-5">
+              Total {totalUsers} user{totalUsers > 1 && "s"}
+            </h1> */}
             <UserContainer />
           </>
         )}
