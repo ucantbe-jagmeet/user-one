@@ -1,6 +1,5 @@
 import { FC } from "react";
 import HomeModals from "../component/HomeModals";
-import { Outlet } from "react-router-dom";
 const Home: FC = () => {
   return (
     <div className="h-full mb-24">

@@ -1,7 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Search from "../component/Search";
 import CreateUserBtn from "../component/CreateUserBtn";
-import UserContainer, { IUser } from "../component/UserContainer";
+import UserContainer from "../component/UserContainer";
 import { setSearchQuery } from "../redux/features/search/SearchSlice";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import UpdateUserModal from "../component/modals/UpdateUserModal";

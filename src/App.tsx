@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-
+// @typescript-eslint/no-unused-vars
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Register from "./pages/Register";

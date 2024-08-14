@@ -41,10 +41,7 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ userId }) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.patch(
-        `${URL}api/v1/users/${userId}`,
-        details
-      );
+      await axios.patch(`${URL}api/v1/users/${userId}`, details);
       toast.success("User updated successfully...");
       dispatch(closeUpdateUserMemberModal());
       window.location.reload();
