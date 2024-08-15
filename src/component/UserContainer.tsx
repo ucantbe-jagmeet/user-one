@@ -102,8 +102,7 @@ const UserContainer: React.FC = () => {
       {usersData && (
         <>
           <User usersData={usersData} handleDelete={handleDelete} />
-         {
-          usersData.length > 5 && 
+        
           <div className="flex justify-center mt-10">
             <Pagination
               current={currentPage}
@@ -115,7 +114,6 @@ const UserContainer: React.FC = () => {
               total={totalUsers}
               />
           </div>
-            }
         </>
       )}
     </main>
