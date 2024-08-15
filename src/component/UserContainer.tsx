@@ -22,7 +22,7 @@ const UserContainer: React.FC = () => {
 
   const [usersData, setUsersData] = useState<IUser[]>();
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(5);
   const { searchQuery } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
   );
@@ -102,6 +102,8 @@ const UserContainer: React.FC = () => {
       {usersData && (
         <>
           <User usersData={usersData} handleDelete={handleDelete} />
+         {
+          usersData.length > 5 && 
           <div className="flex justify-center mt-10">
             <Pagination
               current={currentPage}
@@ -111,8 +113,9 @@ const UserContainer: React.FC = () => {
                 setPageSize(pageSize);
               }}
               total={totalUsers}
-            />
+              />
           </div>
+            }
         </>
       )}
     </main>
