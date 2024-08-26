@@ -55,7 +55,7 @@ const CreateUser: React.FC = () => {
   };
   return (
     <main className="h-auto w-[100%]   py-10 md:mt-10 lg:mt-16">
-      <h1 className="text-center font-semibold tracking-wider uppercase mb-5">
+      <h1 className="text-center font-semibold tracking-wider uppercase mb-7">
         Welcome to Create User <span className="text-3xl">👇🏻</span>
       </h1>
       <form
