@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import FormRow from "./FormRow";
 import FormRowSelect from "./FormRowSelect";
 import axios, { AxiosError } from "axios";
@@ -34,7 +33,7 @@ const CreateUser: React.FC = () => {
     e.preventDefault();
     try {
       if (URL) {
-        const response = await axios.post(`${URL}api/v1/users`, postUser);
+        await axios.post(`${URL}api/v1/users`, postUser);
         toast.success("User Created successfully...");
         setPostUser(initialState);
       }

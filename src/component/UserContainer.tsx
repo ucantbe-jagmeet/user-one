@@ -5,8 +5,8 @@ import toast from "react-hot-toast";
 import { useAppSelector } from "../redux/store";
 import { Pagination } from "antd";
 import Loader from "./Loader";
-const URL = process.env.REACT_APP_API_URL!;
 
+const URL = process.env.REACT_APP_API_URL!;
 export interface IUser {
   _id: string;
   name: string;
@@ -19,19 +19,22 @@ export interface IUser {
 const UserContainer: React.FC = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
-
-  const [usersData, setUsersData] = useState<IUser[]>();
+  const [usersData, setUsersData] = useState<IUser[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
-  const { searchQuery } = useAppSelector(
+
+  const { searchQuery, genderFilter, statusFilter } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
   );
+
   const fetchUsersData = async () => {
     try {
-      setLoading((prev) => !prev);
+      setLoading(true);
       if (URL) {
         const response = await axios.get(
-          `${URL}api/v1/users?keyword=${searchQuery}&page=${currentPage}&limit=${pageSize}`
+          `${URL}api/v1/users?keyword=${searchQuery}&page=${currentPage}&limit=${pageSize}&gender=${
+            genderFilter || ""
+          }&status=${statusFilter || ""}`
         );
 
         const UsersData = response.data.results;
@@ -47,51 +50,60 @@ const UserContainer: React.FC = () => {
           error.toString();
         console.log(message);
       }
-      // unhandled non-AxiosError goes here
       throw error;
     } finally {
-      setLoading((prev) => !prev);
+      setLoading(false);
     }
   };
+
   const fetchTotalUsers = async () => {
     try {
       if (URL) {
-        const response = await axios.get(`${URL}api/v1/users/totalUsers`);
-
-        const totalResult = response.data.totalResult;
+        const response = await axios.get(`${URL}api/v1/users/totalUsers`, {
+          params: {
+            keyword: searchQuery,
+            gender: genderFilter || "",
+            status: statusFilter || "",
+          },
+        });
+        const { totalResult } = response.data;
         setTotalUsers(totalResult);
       }
     } catch (error) {
-      if (error instanceof AxiosError) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-        console.log(message);
-      }
-      // unhandled non-AxiosError goes here
-      throw error;
-    }
-  };
-  const handleDelete = async (userId: string) => {
-    try {
-      await axios.delete(`${URL}api/v1/users/${userId}`);
-      toast.success("User deleted successfully...");
-      window.location.reload();
-    } catch (error) {
-      console.error("Error deleting user:", error);
+       if (error instanceof AxiosError) {
+         const message =
+           (error.response &&
+             error.response.data &&
+             error.response.data.message) ||
+           error.message ||
+           error.toString();
+         console.log(message);
+       }
+       throw error;
     }
   };
 
+ const handleDelete = async (userId: string) => {
+   try {
+     await axios.delete(`${URL}api/v1/users/${userId}`);
+     toast.success("User deleted successfully...");
+     window.location.reload();
+   } catch (error) {
+     console.error("Error deleting user:", error);
+   }
+ };
   useEffect(() => {
     fetchUsersData();
-  }, [searchQuery, currentPage, pageSize]);
-
-  useEffect(() => {
     fetchTotalUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    fetchUsersData();
+    fetchTotalUsers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery, currentPage, pageSize, genderFilter, statusFilter]);
+
+ 
 
   return loading ? (
     <div className="mt-20">
@@ -102,18 +114,19 @@ const UserContainer: React.FC = () => {
       {usersData && (
         <>
           <User usersData={usersData} handleDelete={handleDelete} />
-        
-          <div className="flex justify-center mt-10">
-            <Pagination
-              current={currentPage}
-              pageSize={pageSize}
-              onChange={(page, pageSize) => {
-                setCurrentPage(page);
-                setPageSize(pageSize);
-              }}
-              total={totalUsers}
+          {totalUsers > 1 && (
+            <div className="flex justify-center mt-10">
+              <Pagination
+                current={currentPage}
+                pageSize={pageSize}
+                onChange={(page, pageSize) => {
+                  setCurrentPage(page);
+                  setPageSize(pageSize);
+                }}
+                total={totalUsers}
               />
-          </div>
+            </div>
+          )}
         </>
       )}
     </main>

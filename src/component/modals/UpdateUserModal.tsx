@@ -88,6 +88,7 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ userId }) => {
 
   useEffect(() => {
     fetchUsersData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

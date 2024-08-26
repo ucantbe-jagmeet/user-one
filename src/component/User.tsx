@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { BiMale, BiFemale } from "react-icons/bi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import { IUser } from "./UserContainer";
-import { Dropdown, Modal, Space } from "antd";
+import { Dropdown } from "antd";
 import { useAppDispatch } from "../redux/store";
 import { openUpdateUserMemberModal } from "../redux/features/modal/ModalSlice";
 import { setUserIdValue } from "../redux/features/taskId/taskIdSlice";
@@ -15,21 +15,8 @@ interface IUserProps {
   handleDelete: (userId: string) => void;
 }
 
-const items = [
-  {
-    key: "1",
-    label: <button className="text-blue-500">Update</button>,
-  },
-  {
-    key: "2",
-    danger: true,
-    label: <button className="text-red-500">Delete User</button>,
-  },
-];
-
 const User: React.FC<IUserProps> = ({ usersData, handleDelete }) => {
   const dispatch = useAppDispatch();
-  const [openFilter, setOpenFilter] = useState<boolean>(false);
   return (
     <main className=" w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-x-10 px-12 gap-y-10 py-10">
       {usersData &&

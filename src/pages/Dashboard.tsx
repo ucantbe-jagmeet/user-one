@@ -2,10 +2,10 @@ import { FC } from "react";
 import Search from "../component/Search";
 import CreateUserBtn from "../component/CreateUserBtn";
 import UserContainer from "../component/UserContainer";
-import { setSearchQuery } from "../redux/features/search/SearchSlice";
+import { setSearchQuery} from "../redux/features/search/SearchSlice";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import UpdateUserModal from "../component/modals/UpdateUserModal";
-
+import SortingComponents from "../component/SortingComponents";
 const Dashboard: FC = () => {
   const { searchQuery } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
@@ -31,6 +31,7 @@ const Dashboard: FC = () => {
             inputValue={searchQuery}
             handleInputChange={handleInputChange}
           />
+         <SortingComponents />
           <CreateUserBtn />
         </div>
         <UserContainer />
