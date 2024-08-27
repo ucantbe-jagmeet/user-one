@@ -8,11 +8,11 @@ const SortingComponents = () => {
 
       const dispatch = useAppDispatch();
   return (
-    <div className="flex space-x-2 mr-2">
+    <div className="flex w-full md:w-fit justify-between space-x-4   md:mt-0">
       <Select
         defaultValue=""
-        style={{ width: 120 }}
         onChange={(value) => dispatch(setGenderFilter(value))}
+        className="w-full sm:w-36 h-8"
       >
         <Option value="">All Genders</Option>
         <Option value="male">Male</Option>
@@ -21,7 +21,7 @@ const SortingComponents = () => {
 
       <Select
         defaultValue=""
-        style={{ width: 120 }}
+        className="w-full sm:w-36 h-8"
         onChange={(value) => dispatch(setStatusFilter(value))}
       >
         <Option value="">All Statuses</Option>

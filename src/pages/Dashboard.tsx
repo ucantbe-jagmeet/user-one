@@ -26,13 +26,15 @@ const Dashboard: FC = () => {
     <>
       <main className="min-h-screen overflow-y-auto flex flex-col bg-slate-100 items-center hide-scrollbar ">
         {isUpdateUserModalOpen && <UpdateUserModal userId={userId} />}
-        <div className="w-[90%] md:w-[80%] flex flex-col justify-center md:flex-row md:justify-around md:items-start pt-12 pb-3">
+        <div className="w-full px-12  flex flex-col justify-center md:flex-row md:justify-around md:items-start pt-12 pb-3 gap-y-5 sm:gap-y-0">
           <Search
             inputValue={searchQuery}
             handleInputChange={handleInputChange}
           />
-         <SortingComponents />
-          <CreateUserBtn />
+          <div className="flex flex-col items-center sm:flex-row gap-4">
+            <SortingComponents />
+            <CreateUserBtn />
+          </div>
         </div>
         <UserContainer />
       </main>
