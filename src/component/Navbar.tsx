@@ -1,13 +1,23 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Logo from "./Logo";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 import Navlinks from "./Navlinks";
+import NavModal from "./modals/NavModal";
 
 const Navbar: FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
-    <div className="h-20 bg-white  md:justify-evenly lg:justify-around justify-between px-7 items-center flex ">
+    <div className="h-20 bg-white md:justify-evenly lg:justify-around justify-between px-7 items-center flex ">
       <div className="lg:hidden cursor-pointer">
-        <FaBars className="text-[--primary-dark-blue1] text-xl md:text-3xl hover:rotate-[90deg] transition-all duration-300" />
+        <FaBars
+          className="text-[--primary-dark-blue1] text-xl md:text-3xl hover:rotate-[90deg] transition-all duration-300"
+          onClick={handleModalToggle}
+        />
       </div>
       <div>
         <Logo />
@@ -23,6 +33,7 @@ const Navbar: FC = () => {
           </div>
         </div>
       </div>
+      <NavModal isOpen={isModalOpen} onClose={handleModalToggle} />
     </div>
   );
 };

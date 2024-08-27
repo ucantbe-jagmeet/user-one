@@ -10,8 +10,8 @@ const data: navLinksDataProps[] = [
 
 const Navlinks: FC = () => {
   return (
-    <div className="">
-      <ul className="flex">
+    <div className=" w-full ">
+      <ul className="lg:flex w-fit text-center mx-auto ">
         {data.map((links) => {
           const { id, text, href } = links;
           return (
