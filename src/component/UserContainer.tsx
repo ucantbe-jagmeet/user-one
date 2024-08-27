@@ -21,7 +21,7 @@ const UserContainer: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [usersData, setUsersData] = useState<IUser[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(6);
 
   const { searchQuery, genderFilter, statusFilter } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
